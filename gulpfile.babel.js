@@ -33,6 +33,7 @@ gulp.task('build-scss', () => gulp
 gulp.task('build-js', () => browserify({
     extensions: ['.js', '.jsx'],
     entries: 'src/js/index.jsx',
+    paths: ['./node_modules','./src/js/']
   })
   .transform(babelify.configure({
       ignore: /(bower_components)|(node_modules)/
