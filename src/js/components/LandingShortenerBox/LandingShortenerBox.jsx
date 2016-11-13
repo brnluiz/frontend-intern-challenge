@@ -6,13 +6,14 @@ const LandingShortenerBox = ({shortened, shortenerHandler}) => {
   let button = <input type='submit' value='Encurtar' />;
 
   if (shortened.status) {
-    let text = 'Copiar';
     textField = <input className='input-group-field shortened' type='text' value={shortened.url} />;
     button = (
       <CopyToClipboard text={shortened.url}
-        onCopy={() => { console.log('Copiado!') }}
+        onCopy={() => {
+          alert('Coppied: '+shortened.url);
+        }}
       >
-        <input type='submit' value={text} />
+        <input type='submit' value='Copiar' />
       </CopyToClipboard>
     );
   }
