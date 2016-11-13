@@ -10,7 +10,7 @@
 @mixin vertical-horizontal-align {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  margin: 0;
   left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
