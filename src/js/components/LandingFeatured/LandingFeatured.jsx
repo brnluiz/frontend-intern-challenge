@@ -6,10 +6,10 @@ const LandingFeatured = ({urls}) => (
       <h2>Top 5</h2>
       <table>
         <tbody>
-          {urls.map((url) => (
+          {urls.slice(0,5).map((url) => (
             <tr>
               <td><a href='{url.url}'>{url.shortUrl}</a></td>
-              <td className='counter'>{url.hits}</td>
+              <td className='counter'>{url.hitsFormatted}</td>
             </tr>
           ))}
         </tbody>

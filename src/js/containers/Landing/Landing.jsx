@@ -19,8 +19,24 @@ class Landing extends React.Component {
   fetchUrls() {
     axios.get('assets/data/urls.json')
     .then((response) => {
-      console.log(response.data);
-      this.setState({urls: response.data});
+      let urls = response.data
+      // Sort URLs from the most clicked to the less clicked
+      .sort((a,b) => {
+        if (a.hits > b.hits) {
+          return -1;
+        }
+        if (a.hits < b.hits) {
+          return 1;
+        }
+        return 0;
+      })
+      // Format the number in the de-DE format (dot sepparator for the thousands)
+      .map((url) => {
+        url.hitsFormatted = url.hits.toLocaleString('de-DE');
+        return url;
+      });
+
+      this.setState({urls: urls});
     })
     .catch((error) => {
       console.log(error);
