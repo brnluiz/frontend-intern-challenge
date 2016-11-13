@@ -9,7 +9,12 @@ class Landing extends React.Component {
     super(props);
     this.state = {
       urls: [],
-      totalHits: 0
+      totalHits: 0,
+      shortened: {
+        status: false,
+        url: '',
+        copied: false
+      }
     };
   }
 
@@ -55,10 +60,21 @@ class Landing extends React.Component {
     });
   }
 
+  shortenerHandler(e) {
+    e.preventDefault();
+    this.setState({
+      shortened: {
+        status: true,
+        url: 'http://chr.dc/9dtr4'
+      }
+    });
+  }
+
   render() {
     return (
       <LandingLayout
         props={this.state}
+        shortenerHandler={this.shortenerHandler.bind(this)}
       />
     )
   }
