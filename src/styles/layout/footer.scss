@@ -9,14 +9,14 @@ footer {
     float: left;
     color: $color-chaordic-red;
     @include vertical-align;
-    left: 5px;
+    left: 150px;
   }
 
   ul {
     float: right;
     display: inline-block;
     @include vertical-align;
-    right: 5px;
+    right: 150px;
 
     li {
       list-style: none;

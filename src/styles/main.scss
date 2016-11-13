@@ -1,15 +1,16 @@
 @charset 'utf-8';
 @import '../../node_modules/foundation-sites/scss/foundation';
 
-@import 'layout/header';
-@import 'layout/landing-form';
-@import 'layout/footer';
+@include foundation-global-styles;
+@include foundation-grid;
+@include foundation-forms;
+@include foundation-button;
 
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
-
-@include foundation-global-styles;
-@include foundation-grid;
+@import 'layout/header';
+@import 'layout/landing-form';
+@import 'layout/footer';
 
 html, body {
   font-family: 'Roboto', sans-serif;

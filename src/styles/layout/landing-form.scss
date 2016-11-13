@@ -1,5 +1,42 @@
+@import '../mixins/align';
+
+$color-form: #ff6e16;
+
 .landing-form {
   background: url('../../assets/imgs/background-home.jpg') center center;
-  height: 985px;
+  background-size: cover;
+  padding: 150px 0;
   color: #fff;
+  position: relative;
+
+  .title {
+    // @include vertical-align;
+    text-align: center;
+    h2 {
+      font-family: 'Roboto Slab';
+      font-weight: 700;
+      font-size: 64px;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+
+  form {
+    .input-group-field {
+      $input-placeholder-color: $color-form;
+      $input-shadow: none;
+      $input-shadow-focus: none;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid $color-form;
+    }
+    input[type='submit'] {
+      margin-left: 20px;
+      $button-background: $color-form;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
 }
