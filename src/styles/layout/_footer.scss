@@ -5,7 +5,7 @@ footer {
   span {
     float: left;
     color: $color-chaordic-red;
-    @include vertical-align;
+    @include vertical-center;
     left: 150px;
     font-size: 125%;
     font-weight: 500;
@@ -14,7 +14,7 @@ footer {
   ul {
     float: right;
     display: inline-block;
-    @include vertical-align;
+    @include vertical-center;
     right: 150px;
 
     li {

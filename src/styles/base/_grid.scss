@@ -1,0 +1,6 @@
+.row {
+  @include breakpoint(medium down) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

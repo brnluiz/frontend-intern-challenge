@@ -2,7 +2,7 @@ header {
   position: relative;
   height: 50px;
   img {
-    @include vertical-horizontal-align;
+    @include vertical-horizontal-center;
     display: block;
     margin: 0 auto;
     text-align: center;

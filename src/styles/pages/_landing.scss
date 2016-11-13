@@ -1,27 +1,48 @@
+.landing-form {
+  @extend .row;
+  @extend .expanded;
+
+  background: url('../../assets/imgs/background-home.jpg') center center;
+  background-size: cover;
+  padding: 10rem 0;
+  color: #fff;
+
+  text-align: center;
+  h1 {
+    margin-bottom: .5rem;
+  }
+  p {
+    font-size: 110%;
+  }
+}
+
+.top5 {
+  @extend .row;
+  @extend .expanded;
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .hits {
   @extend .row;
-  @extend .column;
+  @extend .expanded;
 
   margin-top: 3rem;
   padding-bottom: 3rem;
   background: #eee;
 
   &:before {
-      content:"\A";
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 50px 50px 0 50px;
-      border-color: #ffffff transparent transparent transparent;
-      text-align: center;
-      margin: 0 auto;
-      margin-bottom: 2rem;
+    @extend .arrow-down;
   }
-
   h2 {
-    @include section-titles;
+    margin-bottom: 1.5rem;
   }
-
   .hits-number {
     text-align: center;
     .counter {

@@ -1,0 +1,11 @@
+.arrow-down {
+  content:"\A";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 50px 50px 0 50px;
+  border-color: #ffffff transparent transparent transparent;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}

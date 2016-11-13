@@ -1,0 +1,20 @@
+$table-background: #fff;
+$table-border: none;
+$table-stripe: none;
+
+table {
+  a {
+    font-weight: 700;
+    text-align: left;
+  }
+  .counter {
+    text-align: right;
+    color: $color-support-text;
+  }
+  tr {
+    border-bottom: 1px solid #f2f2f2;
+  }
+  tr:last-child {
+    border: none;
+  }
+}

@@ -1,0 +1,12 @@
+form.shortner {
+  @include input-placeholder-color($color-form);
+  margin-top: 3rem;
+
+  .input-group-field {
+    font-weight: 700;
+    border-bottom: 2px solid $color-form;
+  }
+  input[type='submit'] {
+    margin-left: .5rem;
+  }
+}
