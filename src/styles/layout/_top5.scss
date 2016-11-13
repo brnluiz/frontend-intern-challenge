@@ -21,5 +21,8 @@
     tr {
       border-bottom: 1px solid #f2f2f2;
     }
+    tr:last-child {
+      border: none;
+    }
   }
 }
