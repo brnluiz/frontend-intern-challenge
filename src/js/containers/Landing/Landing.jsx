@@ -8,12 +8,17 @@ class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [],
+      totalHits: 0
     };
   }
 
   componentDidMount() {
     this.fetchUrls();
+  }
+
+  formatHits(hits) {
+    return hits.toLocaleString('de-DE');
   }
 
   fetchUrls() {
@@ -30,13 +35,20 @@ class Landing extends React.Component {
         }
         return 0;
       })
-      // Format the number in the de-DE format (dot sepparator for the thousands)
+      // Format the number with a dot sepparator for the thousands
       .map((url) => {
-        url.hitsFormatted = url.hits.toLocaleString('de-DE');
+        url.hitsFormatted = this.formatHits(url.hits);
         return url;
       });
 
-      this.setState({urls: urls});
+      let totalHits = urls.reduce((hits, url) => {
+        return hits + url.hits;
+      }, 0);
+
+      this.setState({
+        urls: urls,
+        totalHits: this.formatHits(totalHits)
+      });
     })
     .catch((error) => {
       console.log(error);

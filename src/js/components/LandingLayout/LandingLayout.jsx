@@ -11,7 +11,7 @@ const LandingLayout = ({props}) => (
     <Header />
     <LandingShortenerBox />
     <LandingFeatured urls={props.urls} />
-    <LandingHits />
+    <LandingHits hits={props.totalHits} />
     <Footer />
   </div>
 )
