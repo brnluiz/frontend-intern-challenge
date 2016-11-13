@@ -1,12 +1,16 @@
 footer {
+  @extend .row;
+  // @extend .column;
+
   height: 62px;
   position: relative;
+  float: none;
 
   span {
     float: left;
     color: $color-chaordic-red;
     @include vertical-center;
-    left: 150px;
+    left: 1rem;
     font-size: 125%;
     font-weight: 500;
   }
@@ -15,7 +19,7 @@ footer {
     float: right;
     display: inline-block;
     @include vertical-center;
-    right: 150px;
+    right: 1rem;
 
     li {
       list-style: none;
