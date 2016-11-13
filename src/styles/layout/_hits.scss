@@ -1,0 +1,32 @@
+.hits {
+  @extend .row;
+  @extend .expanded;
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #eee;
+
+  h2 {
+    @include section-titles;
+  }
+
+  .hits-number {
+    text-align: center;
+    .counter {
+      display: inline-block;
+      font-family: 'Roboto Slab', sans-serif;
+      color: $color-chaordic-red;
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+      background: #fff;
+      padding: 0rem 1rem;
+      border-radius: 5px;
+      font-size: 200%;
+    }
+    .counter-legend {
+      display: block;
+      padding-top: .5rem;
+      color: $color-support-text;
+    }
+  }
+}

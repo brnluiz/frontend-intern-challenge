@@ -12,10 +12,14 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
 
+@import 'mixins/_align';
+@import 'mixins/_titles';
+
 @import 'layout/_header';
 @import 'layout/_landing_form';
 @import 'layout/_footer';
 @import 'layout/_top5';
+@import 'layout/_hits';
 
 html, body {
   font-family: 'Roboto', sans-serif;

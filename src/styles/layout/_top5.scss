@@ -1,18 +1,15 @@
 .top5 {
+  @extend .row;
+  @extend .expanded;
+
   margin-top: 3rem;
   margin-bottom: 3rem;
 
   h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 48px;
-    color: $color-chaordic-red;
-    font-family: 'Roboto Slab', sans-serif;
-    margin: 0;
+    @include section-titles;
   }
 
   table {
-    margin-top: 2rem;
     a {
       font-weight: 700;
       text-align: left;

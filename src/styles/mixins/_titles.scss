@@ -1,0 +1,9 @@
+@mixin section-titles {
+  font-family: 'Roboto Slab', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 250%;
+  color: $color-chaordic-red;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}

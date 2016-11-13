@@ -1,7 +1,6 @@
-@import '../mixins/_align';
-
 .landing-form {
-  @extend .row.column;
+  @extend .row;
+  @extend .expanded;
 
   background: url('../../assets/imgs/background-home.jpg') center center;
   background-size: cover;
