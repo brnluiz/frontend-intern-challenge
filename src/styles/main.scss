@@ -3,9 +3,11 @@
 @import '../../node_modules/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;
+@include foundation-typography;
 @include foundation-grid;
 @include foundation-forms;
 @include foundation-button;
+@include foundation-table;
 
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
@@ -13,6 +15,7 @@
 @import 'layout/_header';
 @import 'layout/_landing_form';
 @import 'layout/_footer';
+@import 'layout/_top5';
 
 html, body {
   font-family: 'Roboto', sans-serif;

@@ -1,7 +1,5 @@
 @import '../mixins/_align';
 
-$color-form: #ff6e16;
-
 .landing-form {
   @extend .row.column;
 
@@ -14,7 +12,7 @@ $color-form: #ff6e16;
   .title {
     // @include vertical-align;
     text-align: center;
-    h2 {
+    h1 {
       font-family: 'Roboto Slab';
       font-weight: 700;
       font-size: 64px;
