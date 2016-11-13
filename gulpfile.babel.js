@@ -1,62 +1,87 @@
 'use strict'
 
-import gulp       from 'gulp';
-import sass       from 'gulp-sass';
-import sourcemaps from 'gulp-sourcemaps';
-import concat     from 'gulp-concat';
-import gutil      from 'gulp-util';
-import babel      from 'gulp-babel'
+import gulp        from 'gulp';
+import sass        from 'gulp-sass';
+import sourcemaps  from 'gulp-sourcemaps';
+import concat      from 'gulp-concat';
+import gutil       from 'gulp-util';
+import babel       from 'gulp-babel';
+import browserSync from 'browser-sync';
+import browserify  from 'browserify';
+import babelify    from 'babelify';
+import source      from 'vinyl-source-stream';
+import buffer      from 'vinyl-buffer';
 
-const scss_src_path = './src/styles/**/*.scss';
-const js_src_path   = './src/js/**/*.{jsx,js}';
-const img_src_path  = './src/imgs/**/*.{gif,jpg,jpeg,png}';
-const html_src_path = './src/**/*.html';
+const scssSrcPath = './src/styles/**/*.scss';
+const jsSrcPath   = './src/js/**/*.{js,jsx}';
+const imgSrcPath  = './src/imgs/**/*.{gif,jpg,jpeg,png}';
+const htmlSrcPath = './src/**/*.html';
+const dataSrcPath = './src/data/**/*.{json,md}';
 
-const assets_path = './public/assets';
+const assetsPath  = './public/assets';
 
 // SASS Rendering
 gulp.task('build-scss', () => gulp
-  .src(scss_src_path)
+  .src(scssSrcPath)
   .pipe(sourcemaps.init()) // Add the map to modified source.
   .pipe(sass().on('error', sass.logError))
   .pipe(sourcemaps.write()) // Add the map to modified source.
-  .pipe(gulp.dest(assets_path + '/styles'))
+  .pipe(gulp.dest(assetsPath + '/styles'))
 );
 
 // JS minify and concat
-gulp.task('build-js', () => gulp
-  .src(js_src_path)
-  .pipe(sourcemaps.init())
-  .pipe(babel({
-    "presets": ["react"]
+gulp.task('build-js', () => browserify({
+    extensions: ['.js', '.jsx'],
+    entries: 'src/js/index.jsx',
+  })
+  .transform(babelify.configure({
+      ignore: /(bower_components)|(node_modules)/
   }))
-  .pipe(concat('app.js'))
-  .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) //only uglify if gulp is ran with '--type production'
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(assets_path + '/js'))
+  .bundle()
+  .on("error", function (err) { console.log("Error : " + err.message); })
+  .pipe(source('app.js'))
+  // .pipe('buffer')
+  // .pipe(sourcemaps.init())
+  // // .pipe(concat('app.js'))
+  // //only uglify if gulp is ran with '--type production'
+  // .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
+  // .pipe(sourcemaps.write())
+  .pipe(gulp.dest(assetsPath + '/js'))
 );
 
 gulp.task('copy-html', () => gulp
-  .src(html_src_path)
+  .src(htmlSrcPath)
   .pipe(gulp.dest('./public/'))
 );
 
 gulp.task('copy-img', () => gulp
-  .src(img_src_path)
-  .pipe(gulp.dest(assets_path + '/imgs'))
+  .src(imgSrcPath)
+  .pipe(gulp.dest(assetsPath + '/imgs'))
+);
+
+gulp.task('copy-data', () => gulp
+  .src(dataSrcPath)
+  .pipe(gulp.dest(assetsPath + '/data'))
 );
 
 gulp.task('default', [
   'build-scss',
   'build-js',
   'copy-img',
-  'copy-html'
+  'copy-html',
+  'copy-data'
 ]);
 
 // Watch task
 gulp.task('watch', ['default'], () => {
-  gulp.watch(scss_src_path, ['build-scss']);
-  gulp.watch(js_src_path,   ['build-js']);
-  gulp.watch(html_src_path, ['copy-html']);
-  gulp.watch(img_src_path,  ['copy-img']);
+  browserSync.create().init({
+    server: {
+      baseDir: "./public"
+    }
+  });
+
+  gulp.watch(scssSrcPath, ['build-scss']);
+  gulp.watch(jsSrcPath,   ['build-js']);
+  gulp.watch(htmlSrcPath, ['copy-html']);
+  gulp.watch(imgSrcPath,  ['copy-img']);
 });
