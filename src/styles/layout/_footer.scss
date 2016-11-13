@@ -7,6 +7,8 @@ footer {
     color: $color-chaordic-red;
     @include vertical-align;
     left: 150px;
+    font-size: 125%;
+    font-weight: 500;
   }
 
   ul {
