@@ -1,6 +1,13 @@
-@import "https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700";
-@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700";
+@charset 'utf-8';
+@import '../../node_modules/foundation-sites/scss/foundation';
 
-html {
-  font-size: 12px;
+@import 'https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
 }
