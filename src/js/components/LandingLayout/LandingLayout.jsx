@@ -6,11 +6,11 @@ import LandingShortenerBox from 'components/LandingShortenerBox';
 import LandingFeatured from 'components/LandingFeatured';
 import LandingHits from 'components/LandingHits';
 
-const LandingLayout = () => (
+const LandingLayout = ({props}) => (
   <div>
     <Header />
     <LandingShortenerBox />
-    <LandingFeatured />
+    <LandingFeatured urls={props.urls} />
     <LandingHits />
     <Footer />
   </div>

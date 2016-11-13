@@ -1,23 +1,17 @@
 import React from 'react';
 
-const LandingFeatured = () => (
+const LandingFeatured = ({urls}) => (
   <section className='top5'>
     <div className='large-6 large-offset-3'>
       <h2>Top 5</h2>
       <table>
         <tbody>
-          <tr>
-            <td><a href='#'>http://chr.dc/xyzyz</a></td>
-            <td className='counter'>666</td>
-          </tr>
-          <tr>
-            <td><a href='#'>http://chr.dc/xyzyz</a></td>
-            <td className='counter'>777</td>
-          </tr>
-          <tr>
-            <td><a href='#'>http://chr.dc/xyzyz</a></td>
-            <td className='counter'>777</td>
-          </tr>
+          {urls.map((url) => (
+            <tr>
+              <td><a href='{url.url}'>{url.shortUrl}</a></td>
+              <td className='counter'>{url.hits}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
