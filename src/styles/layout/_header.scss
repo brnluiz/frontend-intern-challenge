@@ -1,9 +1,8 @@
-@import '../mixins/align';
+@import '../mixins/_align';
 
 header {
   position: relative;
   height: 50px;
-
   img {
     @include vertical-horizontal-align;
     display: block;

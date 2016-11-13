@@ -1,4 +1,5 @@
 @charset 'utf-8';
+@import '_settings';
 @import '../../node_modules/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;
@@ -8,9 +9,10 @@
 
 @import 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,700';
 @import 'https://fonts.googleapis.com/css?family=Roboto:400,700';
-@import 'layout/header';
-@import 'layout/landing-form';
-@import 'layout/footer';
+
+@import 'layout/_header';
+@import 'layout/_landing_form';
+@import 'layout/_footer';
 
 html, body {
   font-family: 'Roboto', sans-serif;
