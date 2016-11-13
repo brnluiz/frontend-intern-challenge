@@ -1,3 +1,5 @@
+'use strict'
+
 import gulp       from 'gulp';
 import sass       from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
@@ -5,16 +7,15 @@ import concat     from 'gulp-concat';
 import gutil      from 'gulp-util';
 import babel      from 'gulp-babel'
 
-const public_path   = './public';
 const scss_src_path = './src/styles/**/*.scss';
-const js_src_path   = './src/js/**/*.js';
-const imgs_src_path = './src/imgs/**/*';
-const jsx_src_path  = './src/js/**/*.jsx';
+const js_src_path   = './src/js/**/*.{jsx,js}';
+const img_src_path  = './src/imgs/**/*.{gif,jpg,jpeg,png}';
+const html_src_path = './src/**/*.html';
 
-const assets_path = public_path + '/assets/';
+const assets_path = './public/assets';
 
 // SASS Rendering
-gulp.task('scss-render', () => gulp
+gulp.task('build-scss', () => gulp
   .src(scss_src_path)
   .pipe(sourcemaps.init()) // Add the map to modified source.
   .pipe(sass().on('error', sass.logError))
@@ -23,8 +24,8 @@ gulp.task('scss-render', () => gulp
 );
 
 // JS minify and concat
-gulp.task('js-build', () => gulp
-  .src(jsx_src_path)
+gulp.task('build-js', () => gulp
+  .src(js_src_path)
   .pipe(sourcemaps.init())
   .pipe(babel({
     "presets": ["react"]
@@ -35,20 +36,27 @@ gulp.task('js-build', () => gulp
   .pipe(gulp.dest(assets_path + '/js'))
 );
 
-gulp.task('html-copy', () => gulp
-  .src('./src/index.html')
-  .pipe(gulp.dest('./public'))
+gulp.task('copy-html', () => gulp
+  .src(html_src_path)
+  .pipe(gulp.dest('./public/'))
 );
 
-gulp.task('img-copy', () => gulp
-  .src(imgs_src_path)
-  .pipe(gulp.dest('./public/assets/imgs'))
+gulp.task('copy-img', () => gulp
+  .src(img_src_path)
+  .pipe(gulp.dest(assets_path + '/imgs'))
 );
+
+gulp.task('default', [
+  'build-scss',
+  'build-js',
+  'copy-img',
+  'copy-html'
+]);
 
 // Watch task
-gulp.task('default', () => {
-  gulp.watch(scss_src_path,['scss-render']);
-  gulp.watch(jsx_src_path,['js-build']);
-  gulp.watch('./src/index.html',['html-copy']);
-  gulp.watch(imgs_src_path, ['img-copy']);
+gulp.task('watch', ['default'], () => {
+  gulp.watch(scss_src_path, ['build-scss']);
+  gulp.watch(js_src_path,   ['build-js']);
+  gulp.watch(html_src_path, ['copy-html']);
+  gulp.watch(img_src_path,  ['copy-img']);
 });
