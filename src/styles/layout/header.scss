@@ -1,0 +1,13 @@
+@import '../mixins/align';
+
+header {
+  position: relative;
+  height: 50px;
+
+  img {
+    @include vertical-horizontal-align;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}

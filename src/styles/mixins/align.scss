@@ -1,0 +1,16 @@
+// Need to define the parent as relative
+
+@mixin vertical-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+@mixin vertical-horizontal-align {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  left: 50%;
+}

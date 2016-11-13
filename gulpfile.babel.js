@@ -5,9 +5,10 @@ import concat     from 'gulp-concat';
 import gutil      from 'gulp-util';
 import babel      from 'gulp-babel'
 
-const public_path    = './public';
+const public_path   = './public';
 const scss_src_path = './src/styles/**/*.scss';
 const js_src_path   = './src/js/**/*.js';
+const imgs_src_path = './src/imgs/**/*';
 const jsx_src_path  = './src/js/**/*.jsx';
 
 const assets_path = public_path + '/assets/';
@@ -39,9 +40,15 @@ gulp.task('html-copy', () => gulp
   .pipe(gulp.dest('./public'))
 );
 
+gulp.task('img-copy', () => gulp
+  .src(imgs_src_path)
+  .pipe(gulp.dest('./public/assets/imgs'))
+);
+
 // Watch task
 gulp.task('default', () => {
   gulp.watch(scss_src_path,['scss-render']);
   gulp.watch(jsx_src_path,['js-build']);
   gulp.watch('./src/index.html',['html-copy']);
+  gulp.watch(imgs_src_path, ['img-copy']);
 });

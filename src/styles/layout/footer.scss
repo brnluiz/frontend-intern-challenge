@@ -1,0 +1,42 @@
+@import '../mixins/align';
+@import '../variables';
+
+footer {
+  height: 62px;
+  position: relative;
+
+  span {
+    float: left;
+    color: $color-chaordic-red;
+    @include vertical-align;
+    left: 5px;
+  }
+
+  ul {
+    float: right;
+    display: inline-block;
+    @include vertical-align;
+    right: 5px;
+
+    li {
+      list-style: none;
+      display: inline-block;
+
+      a {
+        display: block;
+        height: 26px;
+        width: 26px;
+        margin-left: 24px;
+      }
+    }
+  }
+
+  .footer-twitter {
+    background: url('../../assets/imgs/icon-twitter.png') center center;
+  }
+
+  .footer-facebook {
+    background: url('../../assets/imgs/icon-facebook.png') center center;
+  }
+
+}
