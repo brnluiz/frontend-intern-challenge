@@ -1,6 +1,6 @@
 .hits {
   @extend .row;
-  @extend .expanded;
+  @extend .column;
 
   margin-top: 3rem;
   padding-bottom: 3rem;
@@ -33,7 +33,7 @@
       background: #fff;
       padding: 0rem 1rem;
       border-radius: 5px;
-      font-size: 200%;
+      font-size: 250%;
     }
     .counter-legend {
       display: block;

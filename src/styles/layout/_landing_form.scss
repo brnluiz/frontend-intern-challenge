@@ -4,7 +4,7 @@
 
   background: url('../../assets/imgs/background-home.jpg') center center;
   background-size: cover;
-  padding: 150px 0;
+  padding: 10rem 0;
   color: #fff;
   position: relative;
 
@@ -13,11 +13,11 @@
     h1 {
       font-family: 'Roboto Slab';
       font-weight: 700;
-      font-size: 300%;
-      margin-bottom: 1rem;
+      font-size: 275%;
+      margin-bottom: .5rem;
     }
     p {
-      font-size: 100%;
+      font-size: 110%;
     }
   }
 
@@ -32,7 +32,7 @@
     input[type='submit'] {
       @extend .button;
 
-      margin-left: 20px;
+      margin-left: .5rem;
       color: #fff;
       font-weight: 700;
       text-transform: uppercase;
