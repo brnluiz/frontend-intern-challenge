@@ -9,7 +9,6 @@
   position: relative;
 
   .title {
-    // @include vertical-align;
     text-align: center;
     h1 {
       font-family: 'Roboto Slab';
@@ -23,7 +22,9 @@
   }
 
   form {
+    @include placeholder_color($color-form);
     margin-top: 3rem;
+
     .input-group-field {
       font-weight: 700;
       border-bottom: 2px solid $color-form;
