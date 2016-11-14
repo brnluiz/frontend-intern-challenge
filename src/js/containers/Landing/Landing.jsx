@@ -57,6 +57,14 @@ class Landing extends React.Component {
     })
     .catch((error) => {
       console.log(error);
+      this.setState({
+        urls: [{
+            "id": "23094",
+            "hits": 23,
+            "url": "",
+            "shortUrl": "please.read.the.readme.md"
+        }]
+      })
     });
   }
 

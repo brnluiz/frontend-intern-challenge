@@ -8,7 +8,7 @@ const LandingFeatured = ({urls}) => (
         <tbody>
           {urls.slice(0,5).map((url) => (
             <tr>
-              <td><a href='{url.url}'>{url.shortUrl}</a></td>
+              <td><a href={url.url}>{url.shortUrl}</a></td>
               <td className='counter'>{url.hitsFormatted}</td>
             </tr>
           ))}
